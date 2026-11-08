@@ -1,0 +1,61 @@
+.progress-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  align-items: start;
+  gap: 24px;
+}
+.progress-page-layout > .progress-game-list { max-width: none; min-width: 0; }
+.progress-project { min-width: 0; scroll-margin-top: 110px; }
+.progress-sidebar { display: grid; gap: 16px; min-width: 0; }
+.progress-side-panel {
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+}
+.progress-side-panel h2 { margin: 0; font-size: 18px; font-weight: 800; line-height: 1.3; }
+.progress-side-eyebrow { margin: 0 0 9px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.progress-stat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 12px; margin: 20px 0 0; }
+.progress-stat-grid > div { display: flex; flex-direction: column-reverse; gap: 4px; }
+.progress-stat-grid dt { color: var(--muted); font-size: 11px; }
+.progress-stat-grid dd { margin: 0; font-size: 28px; font-weight: 900; line-height: 1; }
+.progress-side-intro { margin: 7px 0 15px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.progress-leaders, .progress-guide-list { margin: 0; padding: 0; list-style: none; }
+.progress-leaders { display: grid; gap: 15px; }
+.progress-leaders a { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 11px; align-items: center; border-radius: 5px; }
+.progress-leaders a:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+.progress-leaders a:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+.progress-leader-cover { display: grid; place-items: center; height: 55px; overflow: hidden; background: rgba(255,255,255,.1); border: 1px solid var(--line); border-radius: 5px; font-size: 15px; font-weight: 800; }
+.progress-leader-cover img { width: 100%; height: 100%; object-fit: cover; }
+.progress-leader-content { min-width: 0; }
+.progress-leader-content h3 { margin: 0 0 7px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; line-height: 1.3; font-weight: 800; }
+.progress-leader-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 10px; color: var(--muted); }
+.progress-leader-meta strong { color: var(--foreground); font-size: 12px; }
+.progress-leader-bar { height: 4px; margin-top: 6px; overflow: hidden; background: rgba(255,255,255,.18); border-radius: 10px; }
+.progress-leader-bar span { display: block; height: 100%; background: rgba(255,255,255,.8); border-radius: inherit; }
+.progress-guide-list { display: grid; gap: 15px; margin-top: 19px; }
+.progress-guide-list li { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 10px; }
+.progress-guide-number { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font-size: 11px; font-weight: 800; }
+.progress-guide-list h3 { margin: 1px 0 4px; font-size: 12px; line-height: 1.4; }
+.progress-guide-list p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.progress-page-layout .progress-game-card { grid-template-columns: 150px minmax(0, 1fr); }
+.progress-page-layout .progress-game-heading h3 { font-size: clamp(20px, 2vw, 28px); }
+.progress-page-layout .stage-item { padding-inline: 10px; }
+@media (min-width: 1051px) and (min-height: 900px) {
+  .progress-sidebar { position: sticky; top: 100px; }
+}
+@media (max-width: 1050px) {
+  .progress-page-layout { grid-template-columns: minmax(0, 1fr); }
+  .progress-sidebar { display: contents; }
+  .progress-overview { order: -1; }
+  .progress-stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .progress-page-layout { gap: 16px; }
+  .progress-side-panel { padding: 18px; }
+  .progress-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .progress-page-layout .progress-game-card { grid-template-columns: minmax(0, 1fr); }
+  .progress-page-layout .progress-game-heading h3 { white-space: normal; line-height: 1.2; }
+}
